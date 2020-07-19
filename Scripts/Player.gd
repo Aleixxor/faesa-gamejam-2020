@@ -7,9 +7,30 @@ var gravity = Master.gravity
 var motion = Vector2()
 var UP = Vector2(0,-1)
 var look_direction = Vector2(1, 0)
+var tempoAtual
 
 func _ready():
 	set_physics_process(true)
+	tempoAtual = get_parent().tempoAtual
+	alternaTempo(tempoAtual);
+
+func alternaTempo(novoTempo):
+	toggleNode(get_parent().get_node('Passado'), false);
+	toggleNode(get_parent().get_node('Presente'), false);
+	toggleNode(get_parent().get_node('Futuro'), false);
+	toggleNode(get_parent().get_node(tempoAtual), false);
+	toggleNode(get_parent().get_node(novoTempo), true);
+	print('De: '+tempoAtual)
+	print('Para: '+novoTempo)
+	tempoAtual = novoTempo
+
+func toggleNode(node, status):
+	if status:
+		node.pause_mode = PAUSE_MODE_INHERIT
+	else:
+		node.pause_mode = PAUSE_MODE_STOP
+	for children in node.get_children():
+		children.visible = status
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -42,9 +63,11 @@ func _physics_process(delta):
 		$sprite.flip_h = true
 
 	if Input.is_action_just_pressed("to_the_future"):
+		alternaTempo("Futuro");
 		print("we are now in the future!")
 
 	if Input.is_action_just_pressed("to_the_past"):
+		alternaTempo("Passado");
 		print("we are now in the past!")
 
 	if Input.is_action_just_pressed("ui_attack"):
