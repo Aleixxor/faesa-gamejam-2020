@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var speed = 500
-export var jumpSpeed = 1000
+export var jumpSpeed = 1100
 
 var gravity = Master.gravity
 var motion = Vector2()
