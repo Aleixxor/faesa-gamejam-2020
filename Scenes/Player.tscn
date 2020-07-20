@@ -34,3 +34,15 @@ position = Vector2( 168.903, 0 )
 current = true
 smoothing_enabled = true
 editor_draw_drag_margin = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = -57.2598
+margin_top = -97.4964
+margin_right = 57.7402
+margin_bottom = -83.4964
+text = "Sem tempo irmão"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

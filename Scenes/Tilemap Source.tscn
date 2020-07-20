@@ -7,25 +7,59 @@ extents = Vector2( 31.8752, 32.0843 )
 
 [node name="Tilemap" type="Node2D"]
 
-[node name="bricks_new" type="Sprite" parent="."]
+[node name="passado" type="Sprite" parent="."]
 position = Vector2( 40, 40 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="bricks_new"]
+[node name="StaticBody2D" type="StaticBody2D" parent="passado" groups=[
+"Passado",
+]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bricks_new/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="passado/StaticBody2D" groups=[
+"colider",
+]]
+shape = SubResource( 1 )
+
+[node name="presente" type="Sprite" parent="."]
+position = Vector2( 120, 40 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="presente" groups=[
+"Presente",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="presente/StaticBody2D" groups=[
+"colider",
+]]
+shape = SubResource( 1 )
+
+[node name="futuro" type="Sprite" parent="."]
+position = Vector2( 200, 40 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="futuro" groups=[
+"Futuro",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="futuro/StaticBody2D" groups=[
+"colider",
+]]
 shape = SubResource( 1 )
 
 [node name="bricks_old" type="Sprite" parent="."]
-position = Vector2( 120, 40 )
+position = Vector2( 280, 40 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 
 [node name="box" type="Sprite" parent="."]
-position = Vector2( 200, 40 )
+position = Vector2( 360, 40 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 0, 64, 64 )

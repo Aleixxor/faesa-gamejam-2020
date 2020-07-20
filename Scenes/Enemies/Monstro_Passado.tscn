@@ -8,7 +8,6 @@ extents = Vector2( 30, 66.7524 )
 
 [node name="monstro_passado" type="KinematicBody2D" groups=[
 "enemy",
-"future",
 ]]
 script = ExtResource( 1 )
 
@@ -16,5 +15,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.158319, 0.158319 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"colider",
+]]
 shape = SubResource( 1 )

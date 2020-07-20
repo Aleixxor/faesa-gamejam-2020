@@ -7,30 +7,26 @@ var gravity = Master.gravity
 var motion = Vector2()
 var UP = Vector2(0,-1)
 var look_direction = Vector2(1, 0)
-var tempoAtual
 
 func _ready():
 	set_physics_process(true)
-	tempoAtual = get_parent().tempoAtual
-	alternaTempo(tempoAtual);
+	alternaTempo(Master.tempoAtual);
 
 func alternaTempo(novoTempo):
-	toggleNode(get_parent().get_node('Passado'), false);
-	toggleNode(get_parent().get_node('Presente'), false);
-	toggleNode(get_parent().get_node('Futuro'), false);
-	toggleNode(get_parent().get_node(tempoAtual), false);
-	toggleNode(get_parent().get_node(novoTempo), true);
-	print('De: '+tempoAtual)
-	print('Para: '+novoTempo)
-	tempoAtual = novoTempo
+	for tempo in Master.linhasTemporais:
+		toggleNode(get_parent().get_node(tempo), false, tempo);
+	toggleNode(get_parent().get_node(Master.linhasTemporais[novoTempo]), true, Master.linhasTemporais[novoTempo]);
+	print('De: '+Master.linhasTemporais[Master.tempoAtual])
+	print('Para: '+Master.linhasTemporais[novoTempo])
+	$Label.text = Master.linhasTemporais[novoTempo]
+	Master.tempoAtual = novoTempo
 
-func toggleNode(node, status):
-	if status:
-		node.pause_mode = PAUSE_MODE_INHERIT
-	else:
-		node.pause_mode = PAUSE_MODE_STOP
+func toggleNode(node, status, tempo):
 	for children in node.get_children():
 		children.visible = status
+	for nodeInGroup in get_tree().get_nodes_in_group('colider'):
+		if(nodeInGroup.get_parent().is_in_group(tempo)):
+			nodeInGroup.disabled = !status
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -63,12 +59,12 @@ func _physics_process(delta):
 		$sprite.flip_h = true
 
 	if Input.is_action_just_pressed("to_the_future"):
-		alternaTempo("Futuro");
-		print("we are now in the future!")
+		if(Master.tempoAtual+1 < Master.linhasTemporais.size()):
+			alternaTempo(Master.tempoAtual + 1);
 
 	if Input.is_action_just_pressed("to_the_past"):
-		alternaTempo("Passado");
-		print("we are now in the past!")
+		if(Master.tempoAtual-1 >= 0):
+			alternaTempo(Master.tempoAtual - 1);
 
 	if Input.is_action_just_pressed("ui_attack"):
 		print("PORRADA")
