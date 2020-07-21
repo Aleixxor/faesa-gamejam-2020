@@ -7,10 +7,13 @@ var gravity = Master.gravity
 var motion = Vector2()
 var UP = Vector2(0,-1)
 var look_direction = Vector2(1, 0)
+var canmove = false
 
 func _ready():
 	set_physics_process(true)
-	alternaTempo(Master.tempoAtual);
+	alternaTempo(Master.tempoAtual)
+	controleAnimacaoMovimento()
+	canmove = true
 
 func alternaTempo(novoTempo):
 	for tempo in Master.linhasTemporais:
@@ -52,11 +55,8 @@ func _physics_process(delta):
 	if is_on_ceiling() and motion.y < 0:
 		motion.y = 0
 
+	controleAnimacaoMovimento()
 	move_and_slide(motion, UP)
-	if motion.x > 0:
-		$sprite.flip_h = false
-	elif motion.x < 0: 
-		$sprite.flip_h = true
 
 	if Input.is_action_just_pressed("to_the_future"):
 		if(Master.tempoAtual+1 < Master.linhasTemporais.size()):
@@ -67,4 +67,26 @@ func _physics_process(delta):
 			alternaTempo(Master.tempoAtual - 1);
 
 	if Input.is_action_just_pressed("ui_attack"):
-		print("PORRADA")
+		canmove = false
+		$sprite.play("attack")
+		yield($sprite, "animation_finished")
+		canmove = true
+
+func controleAnimacaoMovimento():
+	if canmove:
+		if motion != Vector2():
+			if motion.y <= Master.gravity and motion.y >= Master.gravity * (-1):
+				if motion.x > 0:
+					$sprite.flip_h = false
+				elif motion.x < 0:
+					$sprite.flip_h = true
+				$sprite.play("walking")
+			else:
+				if motion.x > 0:
+					$sprite.flip_h = false
+				elif motion.x < 0:
+					$sprite.flip_h = true
+				if motion.y < 0:
+					$sprite.play("jumpup")
+				elif motion.y > 0:
+					$sprite.play("jumpdown")

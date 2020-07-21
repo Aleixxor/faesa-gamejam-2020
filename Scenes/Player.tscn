@@ -1,72 +1,71 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tiles/box.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprite/heroi.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprite/player/jump down/Camada 19 copiar 8.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-1.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-3.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-4.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-5.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-6.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-7.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-8.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-9.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-10.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-11.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Sprite/player/run/cabeça-12.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 9.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 10.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 11.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-1.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-2.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-3.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Sprite/player/jump up/Camada 19 copiar 7.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 4.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 5.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 6.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar 2.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar 3.png" type="Texture" id=31]
-[ext_resource path="res://Scripts/Pivot.gd" type="Script" id=32]
+[ext_resource path="res://Assets/Sprite/player/jump down/Camada 19 copiar 8.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar 2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprite/player/attack/Camada 19 copiar 3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprite/player/jump up/Camada 19 copiar 7.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 9.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 10.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 11.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprite/player/changetime/Camada 19 copiar 12-3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-5.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-6.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-7.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-8.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-9.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-10.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-11.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprite/player/run/cabeça-12.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 4.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 5.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprite/player/dead/Camada 19 copiar 6.png" type="Texture" id=30]
+[ext_resource path="res://Scripts/Pivot.gd" type="Script" id=31]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jumpdown",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "walking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
-"name": "changetime",
+"name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "jumpup",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "changetime",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "dead",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": false,
-"name": "attack",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 35.9998, 69.2393 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -78,23 +77,20 @@ script = ExtResource( 1 )
 visible = false
 texture = ExtResource( 2 )
 
-[node name="sprite" type="Sprite" parent="."]
-scale = Vector2( 0.0845331, 0.0845331 )
-texture = ExtResource( 3 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
-animation = "walking"
-frame = 11
+[node name="sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.0768751, 0.0768751 )
+frames = SubResource( 1 )
+animation = "attack"
+frame = 3
 speed_scale = 3.0
 playing = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.788054, 0.788054 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Pivot" type="Position2D" parent="."]
-script = ExtResource( 32 )
+script = ExtResource( 31 )
 
 [node name="CameraOffset" type="Position2D" parent="Pivot"]
 position = Vector2( 168.903, 0 )
