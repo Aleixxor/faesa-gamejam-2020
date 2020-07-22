@@ -9,6 +9,8 @@ var UP = Vector2(0,-1)
 var look_direction = Vector2(1, 0)
 var canmove = false
 var airAtacksCount = 1
+var maxHp = 100
+var hp = maxHp
 
 func _ready():
 	set_physics_process(true)
@@ -20,8 +22,8 @@ func alternaTempo(novoTempo):
 	for tempo in Master.linhasTemporais:
 		toggleNode(get_parent().get_node(tempo), false, tempo);
 	toggleNode(get_parent().get_node(Master.linhasTemporais[novoTempo]), true, Master.linhasTemporais[novoTempo]);
-	print('De: '+Master.linhasTemporais[Master.tempoAtual])
-	print('Para: '+Master.linhasTemporais[novoTempo])
+#	print('De: '+Master.linhasTemporais[Master.tempoAtual])
+#	print('Para: '+Master.linhasTemporais[novoTempo])
 	$Label.text = Master.linhasTemporais[novoTempo]
 	Master.tempoAtual = novoTempo
 
@@ -61,7 +63,7 @@ func _physics_process(delta):
 		controleAnimacaoMovimento()
 		move_and_slide(motion, UP)
 
-	if Input.is_action_just_pressed("to_the_future"):
+	if Input.is_action_just_pressed("to_the_future") and is_on_floor() and $sprite.animation != "changetime":
 		if(Master.tempoAtual+1 < Master.linhasTemporais.size()):
 			canmove = false
 			$sprite.play("changetime")
@@ -70,7 +72,7 @@ func _physics_process(delta):
 			canmove = true
 		
 
-	if Input.is_action_just_pressed("to_the_past"):
+	if Input.is_action_just_pressed("to_the_past") and is_on_floor() and $sprite.animation != "changetime":
 		if(Master.tempoAtual-1 >= 0):
 			canmove = false
 			$sprite.play("changetime")
@@ -99,6 +101,8 @@ func controleAnimacaoMovimento():
 					$sprite.play("jumpup")
 				elif motion.y > 0:
 					$sprite.play("jumpdown")
+		else:
+			$sprite.play("idle")
 
 func attack():
 	if canAttack():
@@ -111,3 +115,8 @@ func attack():
 
 func canAttack():
 	return airAtacksCount > 0 and $sprite.animation != "attack"
+
+func receiveDmg(_dmg):
+	hp -= _dmg
+	print(hp)
+	pass
